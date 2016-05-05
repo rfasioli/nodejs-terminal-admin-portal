@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+    
+    <script src="/controllers/reports/movimento_cofre.js"></script>
+    <script src="/dist/js/angular-locale_pt-br.js"></script>
+  </head>
+  
+  <body class="hold-transition skin-orion sidebar-mini">
+    <div class="wrapper">
+      
+      <!-- PAGE HEADER -->
+      <% include ../partials/header %>
+      
+      <!-- SIDE BAR MENU -->
+      <% include ../partials/menu %>
+      
+      <!-- PAGE CONTENT -->
+      <!-- PAGE CONTENT -->
+      <!-- PAGE CONTENT -->
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Movimento dos Cofres
+            <small>Relatórios</small><!DOCTYPE html>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Relatórios</li>
+            <li class="active">Movimento dos Cofres</li>
+          </ol>
+        </section>
+        
+        <!-- Main content -->
+        <section class="content">
+          <div class="table-responsive" ng-app="movimentoCofreApp" ng-controller="movimentoCofreController">
+            <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+              <thead>
+                <tr>
+                  <th>Cofre</th>
+                  <th>Usuario</th>
+                  <th>Evento</th>
+                  <th>Data Evento</th>
+                  <th>Data Integração</th>
+                  <th>Cd. Corte</th>
+                  <th>Trans.</th>
+                  <th>Tot. R$ 2</th>
+                  <th>Tot. R$ 5</th>
+                  <th>Tot. R$ 10</th>
+                  <th>Tot. R$ 20</th>
+                  <th>Tot. R$ 50</th>
+                  <th>Tot. R$ 100</th>
+                  <th>Qt.Cédulas</th>
+                  <th>Envelopes</th>
+                  <th>Valor Declarado</th>
+                  <th>Valor Validado</th>
+                  <th>Valor Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="lancamento in lancamentos">
+                  <td><center>{{lancamento.COFRE}}</center></td>
+                  <td><center>{{lancamento.USUARIO}}</center></td>
+                  <td><center>{{lancamento.EVENTO}}</center></td>
+                  <td><center>{{lancamento.DATA_EVENTO | date:'dd/MM/yyyy HH:mm:ss'}}</center></td>
+                  <td><center>{{lancamento.DATA_INTEGRACAO | date:'dd/MM/yyyy HH:mm:ss'}}</center></td>
+                  <td><center>{{lancamento.CODIGO_CORTE}}</center></td>
+                  <td><center>{{lancamento.TRANSACAO}}</center></td>
+                  <td><center>{{lancamento.QT_NOTA_2}}</center></td>
+                  <td><center>{{lancamento.QT_NOTA_5}}</center></td>
+                  <td><center>{{lancamento.QT_NOTA_10}}</center></td>
+                  <td><center>{{lancamento.QT_NOTA_20}}</center></td>
+                  <td><center>{{lancamento.QT_NOTA_50}}</center></td>
+                  <td><center>{{lancamento.QT_NOTA_100}}</center></td>
+                  <td><center>{{lancamento.QT_CEDULAS}}</center></td>
+                  <td><center>{{lancamento.QT_ENVELOPE}}</center></td>
+                  <td>{{lancamento.VALOR_DECLARADO | currency }}</td>
+                  <td>{{lancamento.VALOR_VALIDADO | currency }}</td>
+                  <td>{{lancamento.VALOR_TOTAL | currency }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+      
+      
+      <!-- PAGE FOOTER -->
+      <% include ../partials/footer %>
+      
+      <!-- CONTROLS -->
+      <% include ../partials/controls %>
+      
+    </div>
+  </body>
+</html>

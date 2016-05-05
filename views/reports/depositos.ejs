@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+    
+    <script src="/controllers/reports/depositos.js"></script>
+    <script src="/dist/js/angular-locale_pt-br.js"></script>
+  </head>
+  
+  <body class="hold-transition skin-orion sidebar-mini">
+    <div class="wrapper">
+      
+      <!-- PAGE HEADER -->
+      <% include ../partials/header %>
+      
+      <!-- SIDE BAR MENU -->
+      <% include ../partials/menu %>
+      
+      <!-- PAGE CONTENT -->
+      <!-- PAGE CONTENT -->
+      <!-- PAGE CONTENT -->
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Depósitos
+            <small>Relatórios</small><!DOCTYPE html>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Relatórios</li>
+            <li class="active">Depósitos</li>
+          </ol>
+        </section>
+        
+        <!-- Main content -->
+        <section class="content">
+          <div class="table-responsive" ng-app="depositosApp" ng-controller="depositosController">
+            <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+              <thead>
+                <tr>
+                  <th style="width:8%"><center>Nº Terminal</center></th>
+                  <th style="width:9%">Identificador</th>
+                  <th style="width:25%">Nome</th>
+                  <th style="width:8%">Nº Envelope</th>
+                  <th style="width:10%">Valor Dinheiro</th>
+                  <th style="width:10%">Valor Envelope</th>
+                  <th style="width:10%">Valor Cheque</th>
+                  <th style="width:20%">Data e hora</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="deposito in depositos">
+                  <td><center>{{deposito.NR_TERMINAL}}</center></td>
+                  <td><center>{{deposito.ID_IDENTIFICADOR}}</center></td>
+                  <td>{{deposito.NM_USUARIO}}</td>
+                  <td><center>{{deposito.NR_ENVELOPE}}</center></td>
+                  <td>{{deposito.VL_DINHEIRO | currency }}</td>
+                  <td>{{deposito.VL_ENVELOPE | currency }}</td>
+                  <td>{{deposito.VL_CHEQUE | currency }}</td>                  
+                  <td>
+                    {{deposito.DT_DEPOSITO | date:'dd/MM/yyyy HH:mm:ss'}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+      
+      
+      <!-- PAGE FOOTER -->
+      <% include ../partials/footer %>
+      
+      <!-- CONTROLS -->
+      <% include ../partials/controls %>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  
+  <body class="hold-transition skin-orion sidebar-mini">
+    <div class="wrapper">
+      
+      <!-- PAGE HEADER -->
+      <% include ../partials/header %>
+      
+      <!-- SIDE BAR MENU -->
+      <% include ../partials/menu %>
+      
+      <!-- PAGE CONTENT -->
+      <!-- PAGE CONTENT -->
+      <!-- PAGE CONTENT -->
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Painel de controle
+            <small>Detalhe de estado do terminal</small><!DOCTYPE html>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Monitoramento</li>
+            <li><a href="/monitoramento">Terminais</a></li>
+            <li class="active">Detalhes</li>
+          </ol>        
+        </section>
+		
+        <!-- Main content -->
+        <section class="content" ng-app="detalheTerminalApp">
+              <table>
+                <td valign="top"  ng-controller="estadoTerminalController">
+                  <div class="panel panel-default">
+                    <div class="panel-heading"><strong>{{terminal.DS_TERMINAL}}</strong></div>
+                    <div class="panel-body">
+                      <div style='position:relative; top:0px; left:30px;height:470px; width:300px;'>
+                        <img src="/images/Dcash.png" style='height:450px; width:224px;'/>
+                        <div style='position:absolute; top:15px; left:160px;'>
+                          <img id="terminal" ng-src="{{terminal.imagem}}" style='height:50px'/>
+                        </div>
+                        <div style='position:absolute; top:0px; left:75px;'>
+                          <img id="impressora" ng-src="{{impressora.imagem}}" style='height:30px'/>
+                        </div>
+                        <div style='position:absolute; top:100px; left:105px;'>
+                          <img id="validador" ng-src="{{validador.imagem}}" style='height:30px'/>
+                        </div>
+                        <div style='position:absolute; top:130px; left:160px;'>
+                          <img id="biometria" ng-src="{{biometria.imagem}}" style='height:30px'/>
+                        </div>
+                        <div style='position:absolute; top:280px; left:100px;'>
+                          <img id="porta" ng-src="{{porta.imagem}}" style='height:75px'/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel-footer">
+                    Legenda
+                    <table>
+                      <tr><td><img id="terminal" ng-src="{{terminal.imagem}}" style='height:20px'/></td><td>{{terminal.texto}}</td></tr>
+                      <tr><td><img id="impressora" ng-src="{{impressora.imagem}}" style='height:20px'/></td><td>{{impressora.texto}}</td></tr>
+                      <tr><td><img id="validador" ng-src="{{validador.imagem}}" style='height:20px'/></td><td>{{validador.texto}}</td></tr>
+                      <tr><td><img id="biometria" ng-src="{{biometria.imagem}}" style='height:20px'/></td><td>{{biometria.texto}}</td></tr>
+                      <tr><td><img id="porta" ng-src="{{porta.imagem}}" style='height:20px'/></td><td>{{porta.texto}}</td></tr>
+                    </table>
+                    </div>
+                  </div>
+                </td>
+                <td width=80% valign="top" ng-controller="eventosTerminalController">
+                  <div class="panel panel-default" >
+                    <div class="panel-heading">Eventos</div>
+                    <div class="panel-body">
+                      <div class="list-group">
+                        <a href="#" class="list-group-item" ng-repeat="evento in eventos">
+                          <table>
+                            <tr><td><strong>Tipo evento: </strong></td><td>{{ evento.DS_TIPO_EVENTO }}</td></tr>
+                            <tr><td><strong>Descrição: </strong></td><td>{{ evento.DS_EVENTO }}</td></tr>
+                            <tr><td><strong>Dispositivo: </strong></td><td>{{ evento.NM_DISPOSITIVO }}</td></tr>
+                            <tr><td><strong>Data: </strong></td><td>{{ evento.DT_EVENTO }}</td></tr>
+                          </table>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div><!-- /.content-wrapper -->
+      
+      <!-- PAGE FOOTER -->
+      <% include ../partials/footer %>
+      
+      <!-- CONTROLS -->
+      <% include ../partials/controls %>
+
+      <script src="/controllers/monitoramento/detalhe.js"></script>
+      
+    </div>
+  </body>
+</html>

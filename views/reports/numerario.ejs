@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+    
+    <script src="/controllers/reports/numerario.js"></script>
+    <script src="/dist/js/angular-locale_pt-br.js"></script>
+  </head>
+  
+  <body class="hold-transition skin-orion sidebar-mini">
+    <div class="wrapper">
+      
+      <!-- PAGE HEADER -->
+      <% include ../partials/header %>
+      
+      <!-- SIDE BAR MENU -->
+      <% include ../partials/menu %>
+      
+      <!-- PAGE CONTENT -->
+      <!-- PAGE CONTENT -->
+      <!-- PAGE CONTENT -->
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Numerário
+            <small>Relatórios</small><!DOCTYPE html>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Relatórios</li>
+            <li class="active">Numerário</li>
+          </ol>
+        </section>
+        
+        <!-- Main content -->
+        <section class="content">
+          <div class="table-responsive" ng-app="numerarioApp" ng-controller="numerarioController">
+            <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+              <thead>
+                <tr>
+                  <th><center>Nº Terminal</center></th>
+                  <th>Qtd. Envelopes</th>
+                  <th>Data Numerário</th>
+                  <th>Data Atualização</th>
+                  <th>Valor Dinheiro</th>
+                  <th>Valor Envelope</th>
+                  <th>Valor Cheque</th>
+                  <th>R$2</th>
+                  <th>R$5</th>
+                  <th>R$10</th>
+                  <th>R$20</th>
+                  <th>R$50</th>
+                  <th>R$100</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="lancamento in lancamentos">
+                  <td><center>{{lancamento.NR_TERMINAL}}</center></td>
+                  <td><center>{{lancamento.QT_ENVELOPE}}</center></td>
+                  <td>{{lancamento.DT_SALDO | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                  <td>{{lancamento.DT_SINCRONISMO | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                  <td>{{lancamento.VL_DINHEIRO | currency }}</td>
+                  <td>{{lancamento.VL_ENVELOPE | currency }}</td>
+                  <td>{{lancamento.VL_CHEQUE | currency }}</td>                  
+                  <td><center>{{lancamento.QT_NOTA_2}}</center></td>
+                  <td><center>{{lancamento.QT_NOTA_5}}</center></td>
+                  <td><center>{{lancamento.QT_NOTA_10}}</center></td>
+                  <td><center>{{lancamento.QT_NOTA_20}}</center></td>
+                  <td><center>{{lancamento.QT_NOTA_50}}</center></td>
+                  <td><center>{{lancamento.QT_NOTA_100}}</center></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+      
+      
+      <!-- PAGE FOOTER -->
+      <% include ../partials/footer %>
+      
+      <!-- CONTROLS -->
+      <% include ../partials/controls %>
+      
+    </div>
+  </body>
+</html>

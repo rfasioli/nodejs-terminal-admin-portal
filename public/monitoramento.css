@@ -1,0 +1,81 @@
+#circulo_ext {
+	border-radius: 22px;
+	width:23px; height: 23px;
+	background: #404865;
+}
+#circulo {
+	border-radius: 20px;
+	width:21px; height: 21px;
+}
+.label-status {
+	color: #303030;
+	font-size: 10px;
+	font-family: "Verdana", Verdana, Sans-serif;
+	font-weight: bold;
+}
+
+div .ST_TERMINAL,
+div .ST_TERMINAL[data-color="13"],
+div .ST_TERMINAL[data-color="99"] {
+	background: red;
+}
+div .ST_TERMINAL[data-color="11"],
+div .ST_TERMINAL[data-color="14"] {
+	background: yellow;
+}
+div .ST_TERMINAL[data-color="10"] {
+	background: green;
+}
+div .ST_TERMINAL[data-color="12"] {
+	background: gray;
+}
+
+div .ST_VALIDADOR,
+div .ST_VALIDADOR[data-color="29"] {
+	background: gray;
+}
+div .ST_VALIDADOR[data-color="21"] {
+	background: red;
+}
+div .ST_VALIDADOR[data-color="20"] {
+	background: green;
+}
+
+div .ST_IMPRESSORA,
+div .ST_IMPRESSORA[data-color="19"] {
+	background: gray;
+}
+div .ST_IMPRESSORA[data-color="10"] {
+	background: green;
+}
+div .ST_IMPRESSORA[data-color="11"] {
+	background: red;
+}
+div .ST_IMPRESSORA[data-color="12"] {
+	background: yellow;
+}
+   
+div .ST_BIOMETRIA,
+div .ST_BIOMETRIA[data-color="39"] {
+	background: gray;
+}
+div .ST_BIOMETRIA[data-color="30"] {
+	background: green;
+}
+div .ST_BIOMETRIA[data-color="31"] {
+	background: red;
+}
+               
+div .ST_PORTA, 
+div .ST_PORTA[data-color="49"] {
+	background: gray;
+}
+div .ST_PORTA[data-color="40"] {
+	background: green;
+}
+div .ST_PORTA[data-color="41"] {
+	background: yellow;
+}
+div .ST_PORTA[data-color="42"] {
+	background: red;
+}

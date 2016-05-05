@@ -1,0 +1,51 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+  <head>
+    <% include partials/head %>    
+  </head>
+  <body class="hold-transition skin-orion sidebar-mini">
+    <div class="wrapper">
+      
+      <!-- PAGE HEADER -->
+      <% include partials/header %>
+      
+      <!-- SIDE BAR MENU -->
+      <% include partials/menu %>
+      
+      <!-- PAGE CONTENT -->
+      <!-- PAGE CONTENT -->
+      <!-- PAGE CONTENT -->
+      <div class="content-wrapper">
+        <div class="container">
+          <div class="page-header text-center">
+            <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+            <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+          </div>
+          
+          <div class="row">
+            <!-- LOCAL INFORMATION -->
+            <div class="col-sm-6">
+              <div class="well">
+                <h3><span class="fa fa-user"></span> Local</h3>
+                  <table>
+                    <tr><td><strong>id</strong>:</td><td> <%= user.id %></td></tr>
+                    <tr><td><strong>identificador</strong>:</td><td> <%= user.login %></td></tr>
+                    <tr><td><strong>nome</strong>:</td><td> <%= user.name %></td></tr>
+                    <tr><td><strong>perfil</strong>:</td><td> <%= user.profile.description %></td></tr>
+                  </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- PAGE FOOTER -->
+      <% include partials/footer %>
+      
+      <!-- CONTROLS -->
+      <% include partials/controls %>
+            
+    </div>
+  </body>
+</html>

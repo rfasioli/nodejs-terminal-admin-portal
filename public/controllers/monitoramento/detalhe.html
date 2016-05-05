@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/plugins/font-awesome-4.6.1/css/font-awesome.min.css">
+<link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+<link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+<link rel="stylesheet" href="/dist/css/skins/skin-orion.css">
+
+<script src="/plugins/jquery/jQuery-2.1.4.min.js"></script>
+<script src="/plugins/jquery/jquery-1.12.3.min.js"></script>
+<script src="/plugins/angular/angular.min.js"></script><!-- load angular -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/dist/js/app.min.js"></script>
+
+</head>
+<body>
+<script>
+
+var detalheTerminalApp = angular.module('detalheTerminalApp', []);
+
+function eventosTerminalController($scope, $http) {
+    $scope.formData = {};
+		console.log("Scope: ", $scope);
+		console.log("id", $scope.id);
+		console.log("nr_terminal", $scope.nr_terminal);
+	
+}
+  
+</script>
+<div ng-app="detalheTerminalApp" ng-controller="eventosTerminalController">
+</div>
+</body>
+</html>
