@@ -22,7 +22,7 @@
         <section class="content-header">
           <h1>
             Painel de controle
-            <small>Detalhe de estado do terminal</small><!DOCTYPE html>
+            <small>Detalhe de estado do terminal</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -59,13 +59,13 @@
                       </div>
                     </div>
                     <div class="panel-footer">
-                    Legenda
+                    <center><strong>Legenda</strong><center>
                     <table>
-                      <tr><td><img id="terminal" ng-src="{{terminal.imagem}}" style='height:20px'/></td><td>{{terminal.texto}}</td></tr>
-                      <tr><td><img id="impressora" ng-src="{{impressora.imagem}}" style='height:20px'/></td><td>{{impressora.texto}}</td></tr>
-                      <tr><td><img id="validador" ng-src="{{validador.imagem}}" style='height:20px'/></td><td>{{validador.texto}}</td></tr>
-                      <tr><td><img id="biometria" ng-src="{{biometria.imagem}}" style='height:20px'/></td><td>{{biometria.texto}}</td></tr>
-                      <tr><td><img id="porta" ng-src="{{porta.imagem}}" style='height:20px'/></td><td>{{porta.texto}}</td></tr>
+                      <tr><td><small><strong>Terminal</strong></small></td><td width="10px"></td><td>{{terminal.st}} - {{terminal.texto}}</td><td><img id="terminal" ng-src="{{terminal.imagem}}" style='height:20px'/></td></tr>
+                      <tr><td><small><strong>Impressora</strong></small></td><td width="10px"></td><td>{{impressora.st}} - {{impressora.texto}}</td><td><img id="impressora" ng-src="{{impressora.imagem}}" style='height:20px'/></td></tr>
+                      <tr><td><small><strong>Validador</strong></small></td><td width="10px"></td><td>{{validador.st}} - {{validador.texto}}</td><td><img id="validador" ng-src="{{validador.imagem}}" style='height:20px'/></td></tr>
+                      <tr><td><small><strong>Biometria</strong></small></td><td width="10px"></td><td>{{biometria.st}} - {{biometria.texto}}</td><td><img id="biometria" ng-src="{{biometria.imagem}}" style='height:20px'/></td></tr>
+                      <tr><td><small><strong>Porta</strong></small></td><td width="10px"></td><td>{{porta.st}} - {{porta.texto}}</td><td><img id="porta" ng-src="{{porta.imagem}}" style='height:20px'/></td></tr>
                     </table>
                     </div>
                   </div>
@@ -88,8 +88,6 @@
                   </div>
                 </td>
               </table>
-            </div>
-          </div>
         </section>
       </div><!-- /.content-wrapper -->
       

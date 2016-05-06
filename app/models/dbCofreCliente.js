@@ -323,5 +323,101 @@ module.exports = {
 			return callback(null, err);
 		});
 	}
+	,
+	ObtemTerminaisDisponiveis: function (callback) {
+		var myquery = 'SELECT TERMINAL AS [ST], COUNT(1) AS QTD FROM VW_DISPOSITIVOS GROUP BY TERMINAL;'
+		new sql.Request().query(myquery).then(function(recordset) {
+			return callback(recordset);
+		}).catch(function(err) {
+			return callback(null, err);
+		});
+	}
+	,
+	ObtemValidadoresDisponiveis: function (callback) {
+		var myquery = 'SELECT VALIDADOR AS [ST], COUNT(1) AS QTD FROM VW_DISPOSITIVOS GROUP BY VALIDADOR;'
+		new sql.Request().query(myquery).then(function(recordset) {
+			return callback(recordset);
+		}).catch(function(err) {
+			return callback(null, err);
+		});
+	}
+	,
+	ObtemImpressorasDisponiveis: function (callback) {
+		var myquery = 'SELECT IMPRESSORA AS [ST], COUNT(1) AS QTD FROM VW_DISPOSITIVOS GROUP BY IMPRESSORA;'
+		new sql.Request().query(myquery).then(function(recordset) {
+			return callback(recordset);
+		}).catch(function(err) {
+			return callback(null, err);
+		});
+	}
+	,
+	ObtemBiometriasDisponiveis: function (callback) {
+		var myquery = 'SELECT BIOMETRIA AS [ST], COUNT(1) AS QTD FROM VW_DISPOSITIVOS GROUP BY BIOMETRIA;'
+		new sql.Request().query(myquery).then(function(recordset) {
+			return callback(recordset);
+		}).catch(function(err) {
+			return callback(null, err);
+		});
+	}
+	,
+	ObtemPortasDisponiveis: function (callback) {
+		var myquery = 'SELECT PORTA AS [ST], COUNT(1) AS QTD FROM VW_DISPOSITIVOS GROUP BY PORTA;'
+		new sql.Request().query(myquery).then(function(recordset) {
+			return callback(recordset);
+		}).catch(function(err) {
+			return callback(null, err);
+		});
+	}
+	,
+	IncluiEvento: function (nr_terminal, id_evento_local, ds_tipo_evento, ds_evento, 
+	                        data_evento, cd_dispositivo, callback) {
+		var cdRetorno=0, dsRetorno="";
+		new sql.Request()
+			.input('NR_TERMINAL', sql.VarChar(10), nr_terminal)
+			.input('ID_EVENTO_LOCAL', sql.int, id_evento_local)
+			.input('DS_TIPO_EVENTO', sql.VarChar(100), ds_tipo_evento)
+			.input('DS_EVENTO', sql.VarChar(255), ds_evento)
+			.input('DATA_EVENTO', sql.VarChar(30), data_evento)
+			.input('CD_DISPOSITVO', sql.int, cd_dispositivo)
+			.output('CD_RETORNO', sql.int, cdRetorno)
+			.output('DS_RETORNO', sql.VarChar(100), dsRetorno)
+			.execute('PS_EVENTO').then(function(recordsets) {
+				return callback({'cd_retorno':cdRetorno, 'ds_detorno':DS_RETORNO});
+			}).catch(function(err) {
+				return callback({'cd_retorno':-1, 'ds_detorno':err});
+			});
+	}
+	,
+	AtualizaMonitoracao: function (nr_terminal, dt_sonda, st_terminal, st_validador
+								 , st_impressora, st_biometria, st_porta, st_energia
+								 , st_vibracao, st_porta_gabinete, st_presenca_malote
+								 , st_temperatura, callback) 
+	{
+		var cdRetorno=0, dsRetorno="";
+		console.log(		nr_terminal, dt_sonda, st_terminal, st_validador
+								 , st_impressora, st_biometria, st_porta, st_energia
+								 , st_vibracao, st_porta_gabinete, st_presenca_malote
+								 , st_temperatura);
+			// .input('ST_TERMINAL', sql.int, st_terminal)
+			// .input('ST_VALIDADOR', sql.tinyint, st_validador)
+			// .input('ST_IMPRESSORA', sql.tinyint, st_impressora)
+			// .input('ST_BIOMETRIA', sql.tinyint, st_biometria)
+			// .input('ST_PORTA', sql.tinyint, st_porta)
+			// .input('ST_ENERGIA', sql.tinyint, st_energia)
+			// .input('ST_VIBRACAO', sql.tinyint, st_vibracao)
+			// .input('ST_PORTA_GABINETE', sql.tinyint, st_porta_gabinete)
+			// .input('ST_PRESENCA_MALOTE', sql.tinyint, st_presenca_malote)
+			// .input('ST_TEMPERATURA', sql.tinyint, st_temperatura)
+			// .output('CD_RETORNO', sql.int, cdRetorno)
+			// .output('DS_RETORNO', sql.VarChar(100), dsRetorno)
+		new sql.Request()
+			.input('NR_TERMINAL', sql.VarChar(10), nr_terminal)
+			.input('DATA_SONDA', sql.VarChar(30), dt_sonda)
+			.execute('PS_MONITORACAO').then(function(recordsets) {
+				return callback({'cd_retorno':cdRetorno, 'ds_detorno':DS_RETORNO});
+			}).catch(function(err) {
+				return callback({'cd_retorno':-1, 'ds_detorno':JSON.stringify(err)});
+			});
+	}
 	
 };

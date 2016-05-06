@@ -1,11 +1,13 @@
 #circulo_ext {
-	border-radius: 22px;
+	border-radius: 3px;
 	width:23px; height: 23px;
 	background: #404865;
+	opacity: 0.5;
 }
 #circulo {
-	border-radius: 20px;
+	border-radius: 3px;
 	width:21px; height: 21px;
+	opacity: 0.5;
 }
 .label-status {
 	color: #303030;
@@ -28,6 +30,23 @@ div .ST_TERMINAL[data-color="10"] {
 }
 div .ST_TERMINAL[data-color="12"] {
 	background: gray;
+}
+
+.fa-exclamation {
+  color: yellow;
+}
+.fa-check {
+  color: green;
+}
+.fa-stop-circle {
+	color: gray;
+}
+.fa-bug {
+  color: red;
+}
+.badge {
+	background:#dddddd;
+	color:black;
 }
 
 div .ST_VALIDADOR,

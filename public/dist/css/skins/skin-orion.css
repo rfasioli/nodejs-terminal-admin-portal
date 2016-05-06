@@ -104,6 +104,11 @@
 .skin-orion .treeview-menu > li > a {
   color: #858da8;
 }
+
+.skin-orion .treeview-menu > li.disabled > a {
+	color: #60626A;
+}
+
 .skin-orion .treeview-menu > li.active > a,
 .skin-orion .treeview-menu > li > a:hover {
   color: #ffffff;

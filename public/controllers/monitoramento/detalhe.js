@@ -10,10 +10,10 @@ function getQueryVariable(variable) {
   // alert('Query Variable ' + variable + ' not found');
 }      
 
-var formataStTerminal = function ($scope, status)
+var formataStTerminal = function ($scope, _st)
 {
-	$scope.terminal=[];
-	switch (status) {
+	$scope.terminal.st = _st;
+	switch (_st) {
 	case 13:
 		$scope.terminal.imagem = "/images/coacao.png";
 		$scope.terminal.texto = "Coação";
@@ -41,10 +41,11 @@ var formataStTerminal = function ($scope, status)
 	}
 }
 
-var formataStImpressora = function ($scope, status)
+var formataStImpressora = function ($scope, _st)
 {
 	$scope.impressora=[];
-	switch (status) {
+	$scope.impressora.st = _st;
+	switch (_st) {
 	case 10:
 		$scope.impressora.imagem = "/images/OK.png";
 		$scope.impressora.texto = "Impressora OK";
@@ -64,10 +65,11 @@ var formataStImpressora = function ($scope, status)
 	}
 }
 
-var formataStBiometria = function ($scope, status)
+var formataStBiometria = function ($scope, _st)
 {
 	$scope.biometria=[];
-	switch (status)
+	$scope.biometria.st = _st;
+	switch (_st)
 	{
 	case 30:
 		$scope.biometria.imagem = "/images/ok.png";
@@ -84,10 +86,11 @@ var formataStBiometria = function ($scope, status)
 	}
 }
 
-var formataStValidador = function ($scope, status)
+var formataStValidador = function ($scope, _st)
 {
 	$scope.validador=[];
-	switch (status)
+	$scope.validador.st = _st;
+	switch (_st)
 	{
 	case 20:
 		$scope.validador.imagem = "/images/ok.png";
@@ -104,11 +107,12 @@ var formataStValidador = function ($scope, status)
 	}
 }
 
-var formataStPorta = function ($scope, status)
+var formataStPorta = function ($scope, _st)
 {
 	//Status Porta Cofre
 	$scope.porta=[];
-	switch (status)
+	$scope.porta.st = _st;
+	switch (_st)
 	{
 	case 42:
 		$scope.porta.imagem = "/images/alerta.png";
@@ -143,9 +147,11 @@ var carregaEventos = function($scope, $http, $timeout) {
 
 var carregaDadosTerminal = function($scope, $http, $timeout) {
 	var nr_terminal = getQueryVariable('nr_terminal');
+	console.log("carregaDadosTerminal");
 
     $http.get('/model/cliente/monitoramento?nr_terminal=' + nr_terminal)
         .success(function(data) {
+			console.log($scope.terminal);
             $scope.terminal = data[0];
 
 			formataStTerminal ($scope, data[0].ST_TERMINAL);
@@ -166,11 +172,12 @@ angular.module("detalheTerminalApp", [])
   {
     $scope.formData = {};	
 	carregaEventos($scope, $http, $timeout);
+ 	carregaDadosTerminal($scope, $http, $timeout);
  }])
   .controller("estadoTerminalController", ['$scope', '$http', '$timeout', function ($scope, $http, $timeout)
   {
     $scope.formData = {};
 	carregaDadosTerminal($scope, $http, $timeout);
-  }])
+   }])
 ;
 

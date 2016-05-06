@@ -40,9 +40,6 @@
             <table class="table table-condensed table-striped table-bordered table-hover no-margin">
               <thead>
                 <tr>
-                  <th style="width:5%">
-                    <input class="no-margin" type="checkbox">
-                  </th>
                   <th style="width:8%">Terminal</th>
                   <th style="width:12%">Descrição</th>
                   <th style="width:12%">Estabelecimento</th>
@@ -51,66 +48,29 @@
                   <th style="width:5%" class="hidden-phone">Impressora</th>
                   <th style="width:5%" class="hidden-phone">Biometria</th>
                   <th style="width:5%" class="hidden-phone">Porta</th>
-                  <!--                   
-                    <th style="width:5%" class="hidden-phone">Energia</th>
-                    <th style="width:5%" class="hidden-phone">Vibração</th>
-                    <th style="width:5%" class="hidden-phone">Gabinete</th>
-                    <th style="width:5%" class="hidden-phone">Malote</th>
-                    <th style="width:5%" class="hidden-phone">Temperatura</th>
-                  -->                  
                   <th style="width:20%">Data Sonda</th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="terminal in terminais">
-                  <td style="width:5%">
-                    <input class="no-margin" type="checkbox">
-                  </td>
                   <td><a href="/monitoramento/detalhe?id={{terminal.ID_TERMINAL}}&nr_terminal={{terminal.NR_TERMINAL}}">{{terminal.NR_TERMINAL}}</a></td>
                   <td>{{terminal.DS_TERMINAL}}</td>
                   <td>{{terminal.DS_NOME_SITE}}</td>
                   <td align="center">
-                    <div id="circulo_ext">
-                      <div id="circulo" class="ST_TERMINAL" data-color="{{terminal.ST_TERMINAL}}">
-                        <span class="label-status">{{terminal.ST_TERMINAL}}</span>
-                      </div>
-                    </div>
+                    <span class="badge">{{terminal.ST_TERMINAL}} <i class="{{terminal.CLASS_TERMINAL}}"></i></span>
                   </td>
                   <td align="center">
-                    <div id="circulo_ext">
-                      <div id="circulo" class="ST_VALIDADOR" data-color="{{terminal.ST_VALIDADOR}}">
-                        <span class="label-status">{{terminal.ST_VALIDADOR}}</span>
-                      </div>
-                    </div>
-                    </td>
-                  <td align="center">
-                    <div id="circulo_ext">
-                      <div id="circulo" class="ST_IMPRESSORA" data-color="{{terminal.ST_IMPRESSORA}}">
-                        <span class="label-status">{{terminal.ST_IMPRESSORA}}</span>
-                      </div>
-                    </div>
+                    <span class="badge">{{terminal.ST_VALIDADOR}} <i class="{{terminal.CLASS_VALIDADOR}}"></i></span>
                   </td>
                   <td align="center">
-                    <div id="circulo_ext">
-                      <div id="circulo" class="ST_BIOMETRIA" data-color="{{terminal.ST_BIOMETRIA}}">
-                        <span class="label-status">{{terminal.ST_BIOMETRIA}}</span>
-                      </div>
-                    </div>
+                    <span class="badge">{{terminal.ST_IMPRESSORA}} <i class="{{terminal.CLASS_IMPRESSORA}}"></i></span>
                   </td>
                   <td align="center">
-                    <div id="circulo_ext">
-                      <div id="circulo" class="ST_PORTA" data-color="{{terminal.ST_PORTA}}">
-                        <span class="label-status">{{terminal.ST_PORTA}}</span>
-                        </div>
-                    </div>
+                    <span class="badge">{{terminal.ST_BIOMETRIA}} <i class="{{terminal.CLASS_BIOMETRIA}}"></i></span>
                   </td>
-                  <!--                   
-                    <td align="center"><div id="circulo" data-color="{{terminal.ST_ENERGIA%10}}"></td>
-                    <td align="center"><div id="circulo" data-color="{{terminal.ST_VIBRACAO%10}}"></td>
-                    <td align="center"><div id="circulo" data-color="{{terminal.ST_PORTA_GABINETE%10}}"></td>
-                    <td align="center"><div id="circulo" data-color="{{terminal.ST_PRESENCA_MALOTE%10}}"></td>
-                    <td align="center"><div id="circulo" data-color="{{terminal.ST_TEMPERATURA%10}}"></td>
-                  -->                    
+                  <td align="center">
+                    <span class="badge">{{terminal.ST_PORTA}}<i class="{{terminal.CLASS_PORTA}}"></i></span>
+                  </td>
                   <td>
                     {{terminal.DT_ULT_SONDA | date:'dd/MM/yyyy HH:mm:ss'}}
                   </td>

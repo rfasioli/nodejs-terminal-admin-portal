@@ -159,6 +159,105 @@ router.get('/TotaisDeposito', isLoggedIn, function(req, res) {
 	});
 });
 
+router.get('/PortasDisponiveis', isLoggedIn, function(req, res) {
+	cliente.ObtemPortasDisponiveis(function(rs, err) 
+	{
+		if (!err)
+			res.json(rs);
+		else 
+			res.status(500).send(err);
+	});
+});
+
+router.get('/BiometriasDisponiveis', isLoggedIn, function(req, res) {
+	cliente.ObtemBiometriasDisponiveis(function(rs, err) 
+	{
+		if (!err)
+			res.json(rs);
+		else 
+			res.status(500).send(err);
+	});
+});
+
+router.get('/ImpressorasDisponiveis', isLoggedIn, function(req, res) {
+	cliente.ObtemImpressorasDisponiveis(function(rs, err) 
+	{
+		if (!err)
+			res.json(rs);
+		else 
+			res.status(500).send(err);
+	});
+});
+
+router.get('/ValidadoresDisponiveis', isLoggedIn, function(req, res) {
+	cliente.ObtemValidadoresDisponiveis(function(rs, err) 
+	{
+		if (!err)
+			res.json(rs);
+		else 
+			res.status(500).send(err);
+	});
+});
+
+router.get('/TerminaisDisponiveis', isLoggedIn, function(req, res) {
+	cliente.ObtemTerminaisDisponiveis(function(rs, err) 
+	{
+		if (!err)
+			res.json(rs);
+		else 
+			res.status(500).send(err);
+	});
+});
+
+router.get('/EnviaEvento', function(req, res) {
+	cliente.IncluiEvento(req.query.nr_terminal
+						, req.query.id_evento_local
+						, req.query.ds_tipo_evento
+						, req.query.ds_evento
+						, req.query.data_evento
+						, req.query.cd_dispositivo
+						, function(rs, err) 
+	{
+		if (!err)
+			res.json(rs);
+		else 
+			res.status(500).send(err);
+	});
+});
+
+router.get('/EnviaSonda', function(req, res) {
+	console.log(req.query.nr_terminal
+						, req.query.dt_sonda
+						, req.query.st_terminal
+						, req.query.st_validador
+						, req.query.st_impressora
+						, req.query.st_biometria
+						, req.query.st_porta
+						, req.query.st_energia
+						, req.query.st_vibracao
+						, req.query.st_porta_gabinete
+						, req.query.st_presenca_malote
+						, req.query.st_temperatura);
+	cliente.AtualizaMonitoracao(req.query.nr_terminal
+						, req.query.dt_sonda
+						, req.query.st_terminal
+						, req.query.st_validador
+						, req.query.st_impressora
+						, req.query.st_biometria
+						, req.query.st_porta
+						, req.query.st_energia
+						, req.query.st_vibracao
+						, req.query.st_porta_gabinete
+						, req.query.st_presenca_malote
+						, req.query.st_temperatura
+						, function(rs, err) 
+	{
+		if (!err)
+			res.json(rs);
+		else 
+			res.status(500).send(err);
+	});
+});
 
 module.exports = router;
 

@@ -3,48 +3,49 @@
   <div class="sidebar">
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu"> <!-- ng-app="menuApp" ng-controller="montaMenuCtrl" -->
-      <li class="header">Painel Administrativo</li>
+      <li class="header"><span data-translatable>Painel Administrativo // Administrative Panel // Panel de Administración</span></li>
       <li class="treeview">
-        <a href="#"><i class="fa fa-area-chart"></i><span>Monitoração</span><i class="fa fa-angle-left pull-right"></i></a>
+        <a href="#"><i class="fa fa-area-chart"></i><span data-translatable>Monitoração // Monitoring // Monitoreo</span><i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
-          <li class="active"><a href="/geral"><i class="fa fa-user-plus"></i>Visão Geral</a></li>
-          <li><a href="/monitoramento"><i class="fa fa-key"></i>Monitoração Terminais</a></li>
+          <li class="active"><a href="/geral"><i class="fa fa-user-plus"></i><span data-translatable>Visão Geral // Overview // Visión general</span></a></li>
+          <li><a href="/monitoramento"><i class="fa fa-key"></i><span data-translatable>Monitoração Terminais // Terminal Monitoring // Monitoreo terminales</span></a></li>
         </ul>
       </li>
       <li class="treeview">
-        <a href="#"><i class="fa fa-tachometer" aria-hidden="true"></i><span>Gerenciamento</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <a href="#"><i class="fa fa-tachometer" aria-hidden="true"></i><span data-translatable>Gerenciamento // Management // Administración</span> <i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-user-plus"></i>Cadastro de usuário</a></li>
-          <li><a href="#"><i class="fa fa-key"></i>Alteração de senha</a></li>
-          <li><a href="#"><i class="fa fa-industry"></i>Cadastro Fornecedor</a></li>
-          <li><a href="#"><i class="fa fa-globe"></i>Cadastro Região</a></li>
-          <li><a href="#"><i class="fa fa-laptop"></i>Cadastro Terminal</a></li>
-          <li><a href="#"><i class="fa fa-unlock-alt"></i>Permissão Usuário/Terminal</a></li>
-          <li><a href="#"><i class="fa fa-home"></i>Cadastro Estabelecimento</a></li>
-          <li><a href="#"><i class="fa fa-institution"></i>Cadastro Cliente</a></li>
+          <li class="disabled"><a href="/gerenciamento/usuario"><i class="fa fa-user-plus"></i><span data-translatable>Cadastro de usuário // Users registration // Registro de usuario</span></a></li>
+          <li class="disabled"><a href="/gerenciamento/senha"><i class="fa fa-key"></i><span data-translatable>Alteração de senha // Change password // Cambio de contra ceña</span></a></li>
+          <li class="disabled"><a href="/gerenciamento/fornecedor"><i class="fa fa-industry"></i><span data-translatable>Cadastro Fornecedor // Suppliers // Proveedores</span></a></li>
+          <li class="disabled"><a href="/gerenciamento/regiao"><i class="fa fa-globe"></i><span data-translatable>Cadastro Região // Regions // Regiones </span></a></li>
+          <li class="disabled"><a href="/gerenciamento/terminal"><i class="fa fa-laptop"></i><span data-translatable>Cadastro Terminal // Terminals // terminales</span></a></li>
+          <li class="disabled"><a href="/gerenciamento/permissao"><i class="fa fa-unlock-alt"></i><span data-translatable>Permissão Terminal // Terminal permissions // Permiso de terminales</span></a></li>
+          <li class="disabled"><a href="/gerenciamento/estabelecimento"><i class="fa fa-home"></i><span data-translatable>Cadastro Estabelecimento // Establishment // Establecimiento </span></a></li>
+          <li class="disabled"><a href="/gerenciamento/cliente"><i class="fa fa-institution"></i><span data-translatable>Cadastro Cliente // Customer // Cliente</span></a></li>
         </ul>
       </li>
       <li class="treeview">
-        <a href="#"><i class="fa fa-search"></i><span>Consulta</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <a href="#"><i class="fa fa-search"></i><span data-translatable>Consulta // Query // Consulta</span> <i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-group"></i>Usuários</a></li>
-          <li><a href="#"><i class="fa fa-desktop"></i>Terminais</a></li>
+          <li class="disabled"><a href="/consultas/usuario"><i class="fa fa-group"></i><span data-translatable>Usuários // Users // Usuarios</span></a></li>
+          <li class="disabled"><a href="/consultas/terminais"><i class="fa fa-desktop"></i><span data-translatable>Terminais // Terminals // Terminales</span></a></li>
         </ul>
       </li>
       <li class="treeview">
-        <a href="#"><i class="fa fa-print"></i><span>Relatórios</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <a href="#"><i class="fa fa-print"></i><span data-translatable>Relatórios // Reports // Infórmes </span> <i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
-          <li><a href="/reports/depositos"><i class="fa fa-folder-open-o"></i>Depósito</a></li>
-          <li><a href="/reports/fechamento"><i class="fa fa-folder-o"></i>Fechamento</a></li>
-          <li><a href="/reports/numerario"><i class="fa fa-money"></i>Numerário</a></li>
-          <li><a href="/reports/usuario_cofre"><i class="fa fa-user"></i>Usuário Cofre</a></li>
-          <li><a href="/reports/movimento_cofre"><i class="fa fa-exchange"></i>Movimento Cofre</a></li>
+          <li><a href="/reports/depositos"><i class="fa fa-folder-open-o"></i><span data-translatable>Depósito // Deposit // Deposito</span></a></li>
+          <li><a href="/reports/fechamento"><i class="fa fa-folder-o"></i><span data-translatable>Fechamento // Closing // Cierre</span></a></li>
+          <li><a href="/reports/numerario"><i class="fa fa-money"></i><span data-translatable>Numerário // Cash // Efectivo</span></a></li>
+          <li><a href="/reports/usuario_cofre"><i class="fa fa-user"></i><span data-translatable>Usuário Cofre // Safe box user // Usuario cajas fuertes</span></a></li>
+          <li><a href="/reports/movimento_cofre"><i class="fa fa-exchange"></i><span data-translatable>Movimento Cofre // Movement of safes // Movimiento de cajas fuertes </span></a></li>
         </ul>
       </li>
       <li class="treeview">
-        <a href="#"><i class="fa fa-cog"></i><span>Sistema</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <a href="#"><i class="fa fa-cog"></i><span data-translatable>Sistema // System // Sistema</span> <i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
-          <li><a href="#"><span>Permissão Perfil/Funcionalidade</span></a></li>
+          <li class="disabled"><a href="/sistema/permissao" ><i class="fa fa-universal-access"></i><span data-translatable>Permissão Funcionalidades // Features permissions // Permiso de características </span></a></li>
+          <li class="disabled"><a href="/sistema/preferencias"><i class="fa fa-cog"></i><span data-translatable>Preferências // Preferences // Preferencias</span></a></li>
         </ul>
       </li>
 <!--       <div ng-app="menuApp" ng-controller="montaMenuCtrl">
@@ -62,6 +63,12 @@
 
 <!-- <script src="/controllers/menu.js"></script> -->
 <script>
+  $(document).ready(function() {
+     $(".treeview-menu li.disabled a").click(function() {
+       return false;
+     });
+  });  
+  
   var menuApp = angular.module('menuApp', []);
 
   function montaMenuCtrl($scope, $http) {

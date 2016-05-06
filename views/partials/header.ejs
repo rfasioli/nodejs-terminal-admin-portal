@@ -17,11 +17,17 @@
       <ul class="nav navbar-nav">
         <!-- Language menu -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class="img-circle" src="/images/pt-br.png" /><span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <div data-translatable>
+              <span><img class="img-circle" src="/images/pt-br.png" /><span class="caret"></span></span>
+              <span><img class="img-circle" src="/images/en.png" /><span class="caret"></span></span>
+              <span><img class="img-circle" src="/images/es.png" /><span class="caret"></span></span>
+            </div>
+          </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#"><img class="img-circle" src="/images/pt-br.png" /></a></li>
-            <li><a href="#"><img class="img-circle" src="/images/en.png" /></a></li>
-            <li><a href="#"><img class="img-circle" src="/images/es.png" /></a></li>
+            <li><a id="pt-btn" href="#"><img class="img-circle" src="/images/pt-br.png" /> Português</a></li>
+            <li><a id="en-btn" href="#"><img class="img-circle" src="/images/en.png" /> English</a></li>
+            <li><a id="es-btn" href="#"><img class="img-circle" src="/images/es.png" /> Español</a></li>
           </ul>
         </li>
         <!-- User Account: style can be found in dropdown.less -->
@@ -54,3 +60,25 @@
     </div>
   </nav>
 </header>
+
+<script>
+  var ptButton = document.getElementById('pt-btn');
+  var enButton = document.getElementById('en-btn');
+  var esButton = document.getElementById('es-btn');
+  var i18n = domI18n({
+    selector: '[data-translatable]',
+    separator: ' // ',
+    languages: ['pt-BR', 'en', 'es'],
+    defaultLanguage: 'pt-BR',
+    currentLanguage: 'pt-BR'
+  });
+  ptButton.onclick = function () {
+    i18n.changeLanguage('pt-BR');
+  };
+  enButton.onclick = function () {
+    i18n.changeLanguage('en');
+  };
+  esButton.onclick = function () {
+    i18n.changeLanguage('es');
+  };
+</script>
